@@ -7,24 +7,40 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class Myadapter(private var userlist: List<User> ) :
+class Myadapter(private var userlist: List<User>, private var clickListener:(User) -> Unit) :
     RecyclerView.Adapter<Myadapter.MyViewHolder>() {
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View, clickposition: (Int) ->Unit) : RecyclerView.ViewHolder(itemView) {
 
-        val movieName: TextView = itemView.findViewById(R.id.movie_name)
+        val userName: TextView = itemView.findViewById(R.id.movie_name)
+
+
+        init {
+
+
+            userName.setOnClickListener {
+
+                clickposition(absoluteAdapterPosition)
+
+
+            }
+
+
+        }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val viewholder = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
-        return MyViewHolder(viewholder)
+        return MyViewHolder(viewholder){
+            clickListener(userlist[it])
+        }
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = userlist[position]
 
-        holder.movieName.text = currentItem.firstName
+        holder.userName.text = currentItem.firstName
 
 
 

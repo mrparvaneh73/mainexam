@@ -44,7 +44,9 @@ class SecondFragment:Fragment(R.layout.frament_second) {
         val call = NetworkManager.service.getuser()
         call.enqueue(object : Callback<List<User>?> {
             override fun onResponse(call: Call<List<User>?>, response: Response<List<User>?>) {
-                val adapter = Myadapter(response.body()!!)
+                val adapter = Myadapter(response.body()!!){
+                    Toast.makeText(requireContext(), it.lastName.toString(), Toast.LENGTH_SHORT).show()
+                }
                 recyclerView.adapter = adapter
             }
 
