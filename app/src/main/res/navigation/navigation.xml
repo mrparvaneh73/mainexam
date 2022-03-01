@@ -7,11 +7,19 @@
     <fragment
         android:id="@+id/accountFragment2"
         android:name="com.example.mainexam.AccountFragment"
-        android:label="AccountFragment" />
+        android:label="AccountFragment" >
+        <action
+            android:id="@+id/action_accountFragment2_to_searchFragment2"
+            app:destination="@id/searchFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment2"
         android:name="com.example.mainexam.SearchFragment"
-        android:label="SearchFragment" />
+        android:label="SearchFragment" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.mainexam.SecondFragment"

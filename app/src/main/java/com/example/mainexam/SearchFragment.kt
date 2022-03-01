@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.example.mainexam.NetworkManager.service
 import com.example.mainexam.databinding.FragmentSearchBinding
 import okhttp3.MediaType
@@ -18,6 +19,7 @@ import retrofit2.Response
 import java.io.ByteArrayOutputStream
 
 class SearchFragment: Fragment(R.layout.fragment_search) {
+    private val args:SearchFragmentArgs by navArgs()
     fun Bitmap.toByteArray():ByteArray{
         ByteArrayOutputStream().apply {
             compress(Bitmap.CompressFormat.JPEG,10,this)
@@ -46,10 +48,10 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
             cameraluncher.launch(null)
         }
         binding.upload.setOnClickListener {
-            val imageName = binding.idtext.text.toString()
+
             val body = MultipartBody.create(MediaType.parse("image/*"), imageBitmap?.toByteArray())
-            val request = MultipartBody.Part.createFormData("image", "$imageName.jpg", body)
-            service.sendImage(imageName, request).enqueue(object : Callback<Any> {
+            val request = MultipartBody.Part.createFormData("upload", "ssss.jpg", body)
+            service.sendImage(args.id, request).enqueue(object : Callback<Any> {
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {
                     Toast.makeText(requireContext(), "Your Image uploaded successfully", Toast.LENGTH_SHORT).show()
                 }

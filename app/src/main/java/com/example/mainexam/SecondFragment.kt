@@ -38,14 +38,12 @@ class SecondFragment:Fragment(R.layout.frament_second) {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        recyclerView = view.findViewById(R.id.recyclerview)
+        recyclerView.layoutManager = GridLayoutManager(view.context, 1)
 
         val call = service.getuser()
         call.enqueue(object : Callback<List<User>?> {
             override fun onResponse(call: Call<List<User>?>, response: Response<List<User>?>) {
-
-                recyclerView = view.findViewById(R.id.recyclerview)
-                recyclerView.layoutManager = GridLayoutManager(view.context, 1)
                 val adapter = Myadapter(response.body()!!)
                 recyclerView.adapter = adapter
             }

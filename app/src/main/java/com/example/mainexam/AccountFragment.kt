@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.mainexam.databinding.FragmentAccountBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,14 +41,17 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
             val user=User(binding.etname.text.toString(),binding.etfamily.text.toString(),binding.etnacode.text.toString(),hobbies)
             NetworkManager.service.sendaccount(user).enqueue(object :Callback<String>{
                 override fun onResponse(call: Call<String>, response: Response<String>) {
-
+        val accont=AccountFragmentDirections.actionAccountFragment2ToSearchFragment2(response.body().toString())
+                    findNavController().navigate(accont)
                 }
 
                 override fun onFailure(call: Call<String>, t: Throwable) {
                     Toast.makeText(requireContext(), "fail", Toast.LENGTH_SHORT).show()
                 }
             })
+
         }
+
 
 
     }
