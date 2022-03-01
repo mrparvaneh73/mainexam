@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ProfileService {
-    @GET("/users")
+    @GET("users")
     fun getuser(): Call<List<User>>
 
     @Multipart

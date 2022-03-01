@@ -41,7 +41,7 @@ class SecondFragment:Fragment(R.layout.frament_second) {
         recyclerView = view.findViewById(R.id.recyclerview)
         recyclerView.layoutManager = GridLayoutManager(view.context, 1)
 
-        val call = service.getuser()
+        val call = NetworkManager.service.getuser()
         call.enqueue(object : Callback<List<User>?> {
             override fun onResponse(call: Call<List<User>?>, response: Response<List<User>?>) {
                 val adapter = Myadapter(response.body()!!)
