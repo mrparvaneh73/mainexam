@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/accountFragment2">
+
+    <fragment
+        android:id="@+id/accountFragment2"
+        android:name="com.example.mainexam.AccountFragment"
+        android:label="AccountFragment" />
+    <fragment
+        android:id="@+id/searchFragment2"
+        android:name="com.example.mainexam.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.mainexam.SecondFragment"
+        android:label="SecondFragment" />
+</navigation>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <EditText
+        android:id="@+id/etname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Name"/>
+    <EditText
+        android:id="@+id/etfamily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Family"/>
+    <EditText
+        android:id="@+id/etnacode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Natoinal Number"/>
+    <CheckBox
+        android:id="@+id/checkone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sport"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"/>
+    <CheckBox
+        android:id="@+id/check2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="painting"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"/>
+    <CheckBox
+        android:id="@+id/check3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="singing"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"/>
+
+
+    <Button
+        android:id="@+id/btcr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="creat"/>
+
+</LinearLayout>
